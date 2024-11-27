@@ -27,10 +27,16 @@ int main(int argc, char **argv){
 	double x,y,z;
 	
 	while(ros::ok()){
-		std::cout<<"Do you want to control turtle1 or turtle2? ";		
-		std::cin>>robot;
-		std::cout<<"Insert the derired velocity (respectively x,y and angular): ";
-		std::cin>>x>>y>>z;
+		do {
+			std::cout<<"Do you want to control turtle1 or turtle2? ";		
+			std::cin>>robot;
+		} while ((robot != "turtle1") and (robot != "turtle2"));
+		std::cout<<"Insert the desired x velocity: ";
+		std::cin>>x;
+		std::cout<<"Insert the desired y velocity: ";
+		std::cin>>y;
+		std::cout<<"Insert the desired angular velocity: ";
+		std::cin>>z;
 		my_vel.linear.x = x;
 		my_vel.linear.y = y;
 		my_vel.angular.z = z;
